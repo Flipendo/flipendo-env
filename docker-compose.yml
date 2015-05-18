@@ -1,0 +1,17 @@
+api:
+  build: ./flipendo-api/
+  command: npm start
+  ports:
+    - "3000:3000"
+  environment:
+    - VIRTUAL_HOST=api.flipendo.local
+    - VIRTUAL_PORT=3000
+website:
+  build: ./flipendo-website/
+  ports:
+    - "8080:3000"
+  environment:
+    - VIRTUAL_HOST=website.flipendo.local
+    - VIRTUAL_PORT=8080
+  links:
+    - api
