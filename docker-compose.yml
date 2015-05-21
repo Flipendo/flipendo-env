@@ -8,6 +8,8 @@ api:
     - VIRTUAL_PORT=3000
     - AWS_ACCESS_KEY_ID
     - AWS_SECRET_ACCESS_KEY
+  links:
+    - rabbitmq
 website:
   build: ./flipendo-website/
   ports:
@@ -17,3 +19,15 @@ website:
     - VIRTUAL_PORT=8080
   links:
     - api
+rabbitmq:
+  image: rabbitmq
+  expose:
+    - "5672"
+    - "15672"
+worker:
+  build: ./flipendo-worker/
+  environment:
+    - AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY
+  links:
+    - rabbitmq
