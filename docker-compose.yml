@@ -8,6 +8,8 @@ api:
     - VIRTUAL_PORT=3000
     - AWS_ACCESS_KEY_ID
     - AWS_SECRET_ACCESS_KEY
+  volumes:
+    - ~/.aws:~/.aws:ro
   links:
     - rabbitmq
 website:
@@ -29,5 +31,7 @@ worker:
   environment:
     - AWS_ACCESS_KEY_ID
     - AWS_SECRET_ACCESS_KEY
+  volumes:
+    - ~/.aws:~/.aws:ro
   links:
     - rabbitmq
