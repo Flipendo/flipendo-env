@@ -17,11 +17,10 @@ website:
     - api
 rabbitmq:
   image: rabbitmq
+  command: rabbitmq-server --hostname flipendo-rabbit
   expose:
     - "5672"
     - "15672"
-  environment:
-    - RABBITMQ_NODENAME=flipendo-rabbit
 worker:
   build: ./flipendo-worker/
   environment:
