@@ -1,9 +1,9 @@
 [submodule "flipendo-api"]
 	path = flipendo-api
-	url = git@github.com:Flipendo/flipendo-api.git
+	url = git@github.com:flipendo/flipendo-api.git
 [submodule "flipendo-website"]
 	path = flipendo-website
-	url = git@github.com:Flipendo/flipendo-website.git
+	url = git@github.com:flipendo/flipendo-website.git
 [submodule "flipendo-worker"]
 	path = flipendo-worker
-	url = git@github.com:Flipendo/flipendo-worker.git
+	url = git@github.com:flipendo/flipendo-worker.git
