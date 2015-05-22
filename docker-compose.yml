@@ -1,11 +1,8 @@
 api:
   build: ./flipendo-api/
-  command: npm start
   ports:
     - "3000:3000"
   environment:
-    - VIRTUAL_HOST=api.flipendo.local
-    - VIRTUAL_PORT=3000
     - AWS_ACCESS_KEY_ID
     - AWS_SECRET_ACCESS_KEY
   volumes:
@@ -16,9 +13,6 @@ website:
   build: ./flipendo-website/
   ports:
     - "9000:3000"
-  environment:
-    - VIRTUAL_HOST=website.flipendo.local
-    - VIRTUAL_PORT=8080
   links:
     - api
 rabbitmq:
@@ -26,6 +20,8 @@ rabbitmq:
   expose:
     - "5672"
     - "15672"
+  environment:
+    - RABBITMQ_NODENAME=flipendo-rabbit
 worker:
   build: ./flipendo-worker/
   environment:
