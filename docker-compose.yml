@@ -11,6 +11,9 @@ api:
     - rabbitmq
 website:
   build: ./flipendo-website/
+  environment:
+    - API_ADDR=http://localhost
+    - API_PORT=3000
   ports:
     - "9000:3000"
   links:
